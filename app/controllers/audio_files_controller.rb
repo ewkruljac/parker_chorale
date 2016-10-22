@@ -3,7 +3,7 @@ class AudioFilesController < ApplicationController
   def create
     @audio_file = AudioFile.new(audio_params)
     if @audio_file.save
-      redirect_to 'practice'
+      redirect_to '/practice'
     else
       render 'new'
     end

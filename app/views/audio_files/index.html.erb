@@ -2,6 +2,8 @@
 
 <% @audio_files.each do |e| %>
   <audio controls>
+    <%= e.title %>
     <source src=<%= e.audio %> type="audio/mpeg">
+    Your browser is shit.
   </audio>
 <% end %>
