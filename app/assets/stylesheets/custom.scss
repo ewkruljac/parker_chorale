@@ -2,23 +2,50 @@
 @import "bootstrap";
 
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#navbar-background{
+  background-color: #3b5998;
+  color: white;
+  font-size: 1.2em;
+}
+
 .img-circle {
   height: 4em;
   width: 150px;
   border-radius: 10px;
 }
 
+
 #logo {
   float: left;
   margin-right: 10px;
-  height: 4.2em;
-  color: #fff;
-  background: transparent;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
 }
 
-#logo:hover {
-  color: black;
-  text-decoration: none;
+#chorus-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.jumbotron {
+  text-align: center;
+  display: block;
+  /*background: asset-data-url('parker_chorale.jpg') no-repeat center center;*/
+  position: absolute;
+  width: 100%;
+
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
 }
 
 .top-8 {
@@ -31,4 +58,82 @@
 
 .top-10 {
   padding-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+footer {
+  margin-top: -100px;
+  padding-top: 5px;
+  padding-right: 45px;
+  padding-left: 45px;
+  border-top: 1px solid #d3d3d3;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  color: $gray-light;
+  bottom: 0;
+
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+
+.text-wrap-right{
+  float: left;
+  margin: 10px;
+}
+
+.text-wrap-left {
+  float: right;
+  margin: 10px;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
 }
