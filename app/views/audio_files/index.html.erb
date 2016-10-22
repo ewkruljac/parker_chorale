@@ -1,9 +1,8 @@
 <h1>Under Construction</h1>
 
 <% @audio_files.each do |e| %>
-  <audio controls>
-    <%= e.title %>
-    <source src=<%= e.audio %> type="audio/mpeg">
-    Your browser is shit.
+  <p><%= e.title %></p>
+  <audio src="<%= e.audio %>" type="audio/mpeg" controls>
+    Your browser doesn't suppport audio tags.
   </audio>
 <% end %>
