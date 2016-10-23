@@ -8,7 +8,15 @@
       <%= f.text_field :title %>
 
       <%= f.label :part %>
-      <%= f.text_field :part %>
+      <%= f.select :part, ['Soprano 1', 
+                           'Soprano 2',
+                           'Alto 1',
+                           'Alto 2',
+                           'Tenor',
+                           'Bass',
+                           'Tenor and Bass',
+                           'Soprano - Bass Solos',
+                           'Full Performance'] %>
 
       <%= f.label :mp3 %>
       <%= f.file_field :mp3 %>
