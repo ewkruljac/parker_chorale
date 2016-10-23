@@ -1,7 +1,15 @@
-<header class="navbar navbar-default">
-  <div class="container" >
-    <div class="navbar-header">
-    
+<header class="navbar navbar-default header">
+
+  <div class="container">
+    <div class="heading navbar-header">
+      <%= image_tag(src="chorale_logo.jpg", class: "logo") %>
+      <p>Parker, Colorado's Adult Community Choral Group!</p>
+    </div>
+  </div>
+
+
+
+
       <button type="button"
               class="navbar-toggle collapsed"
               data-toggle="collapse"
@@ -12,13 +20,13 @@
         <span class="icon-bar"></span>
       </button>
 
-      <span><%= link_to image_tag("chorale_logo.jpg", class: "img-circle top-8 bottom-8"), '#' %></span>
-    </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right top-10">
+  <div class="menu">
+
+    <div class="container collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About Us", about_us_path %></li>
+        <li><%= link_to "About", about_us_path %></li>
         <li><%= link_to "Hear Us Sing", hear_us_sing_path %></li>
         <li><%= link_to "Support Us", support_path %></li>
         <li><%= link_to "Contact", contact_path %></li>
@@ -26,3 +34,5 @@
     </div>
   </div>
 </header>
+
+

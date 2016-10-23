@@ -2,7 +2,7 @@
 
 <% @audio_files.each do |e| %>
   <p><%= e.title %></p>
-  <audio src="<%= e.audio %>" type="audio/mpeg" controls>
+  <audio src="<%= e.mp3.url %>" type="audio/mpeg" controls>
     Your browser doesn't suppport audio tags.
   </audio>
 <% end %>

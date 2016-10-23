@@ -8,10 +8,14 @@
   box-sizing: border-box;
 }
 
-#navbar-background{
-  background-color: #3b5998;
-  color: white;
+
+/*.navbar {
+  background-color: #ABADBB;
   font-size: 1.2em;
+}
+
+.nav li {
+  display: inline-block;
 }
 
 .img-circle {
@@ -28,6 +32,49 @@
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+}*/
+
+.logo {
+  height: 89px; 
+  width: 210px;
+}
+
+.header {
+  width: 100%;
+  background-color: white;
+  min-height: 120px;
+}
+
+.heading {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  margin-top: 30px;
+  margin-right: 25px;
+  float: right;
+}
+
+.menu {
+  min-height: 40px;
+  background-color: #5f6381;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu div ul li a{
+  color: white !important;
+}
+
+.menu a:hover {
+  color: black;
+}
+
+header button {
+  color: white;
 }
 
 #chorus-photo {
@@ -36,11 +83,14 @@
 }
 
 .jumbotron {
+  font-family: copperplate;
   text-align: center;
   display: block;
   /*background: asset-data-url('parker_chorale.jpg') no-repeat center center;*/
   position: absolute;
   width: 100%;
+
+  background-color: #ABADBB;
 
   top: 0;
   left: 0;
@@ -137,3 +187,5 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+/**/
