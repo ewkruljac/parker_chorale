@@ -1,8 +1,16 @@
-<h1>Under Construction</h1>
+<h1>Practice Tools for Members</h1>
+
+<h3>Music for (need to handle specific events)</h3>
 
 <% @audio_files.each do |e| %>
-  <p><%= e.title %></p>
-  <audio src="<%= e.mp3.url %>" type="audio/mpeg" controls>
-    Your browser doesn't suppport audio tags.
-  </audio>
+  <p><strong><%= e.title.capitalize %> - <%= e.part.capitalize %></strong></p>
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <audio src="<%= e.mp3.url %>" type="audio/mpeg" controls>
+        Your browser doesn't suppport audio tags.
+      </audio>
+    </li>
+  </ul>
+
 <% end %>
