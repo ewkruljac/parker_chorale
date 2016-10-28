@@ -1,0 +1,112 @@
+<h1>Hear us sing</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <h2>Catch us at one of our upcoming performances, or check out videos of some
+         of our past performances.
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-2">
+      <%= image_tag(src="group-standing-8033.jpg") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Parker Chorale is on 
+        <a href="https://www.youtube.com/channel/UCULrEMrY4fjYDY-JyPiIf2w">
+          <%= image_tag(src="YouTube-logo-full_color.png", class: "logo") %>
+        </a>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<h3>Upcoming Performances</h3>
+
+<table class="table table-bordered">
+<% @performances.each do |e| %>
+  <% if e.end_date > Time.now %>
+    <% if e.event_pic_file_name.nil? %>
+      <tr>
+        <td>
+          <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
+        </td>
+        <td class="pull-right">
+          <p><strong><%= e.title %></strong></p>
+          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+             <%= e.end_date.strftime("%m/%d/%Y") %>
+          </p>
+          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
+          <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
+            BUY TICKETS</a>
+          </p>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td>
+          <%= image_tag e.event_pic.url, class: "table-img" %> 
+        </td>
+        <td>
+          <p><strong><%= e.title %></strong></p>
+          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+             <%= e.end_date.strftime("%m/%d/%Y") %>
+          </p>
+          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
+          <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
+            BUY TICKETS</a>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+<% end %>
+</table>
+
+<h3>Past Performances</h3>
+
+<table class="table table-bordered">
+<% @performances.each do |e| %>
+  <% if e.end_date < Time.now %>
+    <% if e.event_pic_file_name.nil? %>
+      <tr>
+        <td>
+          <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
+        </td>
+        <td>
+          <p><strong><%= e.title %></strong></p>
+          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+             <%= e.end_date.strftime("%m/%d/%Y") %>
+          </p>
+          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
+        </td>
+        <td class="embed-container">
+          <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
+        </td>
+      </tr>
+    <% else %>
+      <tr>
+        <td>
+          <%= image_tag e.event_pic.url, class: "table-img" %> 
+        </td>
+        <td>
+          <p><strong><%= e.title %></strong></p>
+          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+             <%= e.end_date.strftime("%m/%d/%Y") %>
+          </p>
+          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
+        </td>
+        <td class="embed-container">
+          <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
+        </td>
+
+      </tr>
+    <% end %>
+  <% end %>
+<% end %>
+</table>

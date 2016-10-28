@@ -36,6 +36,24 @@ body {
   font-weight: bold;
 }*/
 
+.embed-container {
+  position: relative;
+  width: 60%;
+  height: 96%;
+  padding-top: 3px;
+}
+
+
+
+.table td {
+  text-align: center;
+}
+
+.table-img {
+  height: 120px;
+  width: 120px;
+}
+
 .logo {
   height: 89px; 
   width: 210px;
@@ -71,8 +89,8 @@ body {
   color: white !important;
 }
 
-.menu a:hover {
-  color: black;
+.menu div ul li a:hover {
+  color: black !important;
 }
 
 header button {

@@ -5,7 +5,7 @@
     <%= form_for(@audio_file, url: admin_path, html: { multipart: true }) do |f| %>
 
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, class: 'form-control' %>
 
       <%= f.label :part %>
       <%= f.select :part, ['Soprano 1', 
@@ -16,10 +16,10 @@
                            'Bass',
                            'Tenor and Bass',
                            'Soprano - Bass Solos',
-                           'Full Performance'] %>
+                           'Full Performance'], class: 'form-control' %>
 
       <%= f.label :mp3 %>
-      <%= f.file_field :mp3 %>
+      <%= f.file_field :mp3, class: 'form-control' %>
 
       <%= f.submit "Upload", class: "btn btn-primary" %>
     <% end %>
