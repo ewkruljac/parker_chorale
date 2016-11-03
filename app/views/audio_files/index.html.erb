@@ -7,7 +7,7 @@
 
   <ul class="list-group">
     <li class="list-group-item">
-      <audio src="<%= e.mp3.url.split.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
+      <audio src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
         Your browser doesn't suppport audio tags.
       </audio>
     </li>
