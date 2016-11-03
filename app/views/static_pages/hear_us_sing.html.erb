@@ -1,41 +1,60 @@
-<h1>Hear us sing</h1>
+<div class="container">
+  <div class="row"> 
+    <div class="col-md-12">
+      <h1>Hear us sing</h1>
 
-<p>Catch us at one of our upcoming performances, or check out videos of some
-   of our past performances.</p>
+      <p>Catch us at one of our upcoming performances, or check out videos of some
+         of our past performances.</p>
+    </div>
 
-<p>Parker Chorale is on <a href="https://www.youtube.com/channel/UCULrEMrY4fjYDY-JyPiIf2w">
-   <%= image_tag(src="YouTube-logo-full_color.png", class: "logo") %></a></p>
 
-<%= image_tag(src="group-standing-8033.jpg") %>
 
-<h3>Upcoming Performances</h3>
+    <div class="col-lg-6 col-lg-offset-4">
+      <p>%= image_tag(src="group-standing-8033.jpg") %></p>
+    </div>
 
-<% @performances.each do |e| %>
-  <% if e.end_date < Time.now %>
-    <table class="table">
-      <tr>
-        <td>
-          <img src='#' class="table-img">
-        </td>
-        <td>
-          <p><strong><%= e.title %></strong></p>
-          <p><%= e.start_date %> through <%= e.end_date %></p>
-          <p><%= link_to "BUY TICKETS", e.purchase_link %></p>
-        </td>
-      </tr>
-    </table>
-  <% else %>
-    <table class="table">
-      <tr>
-        <td>
-          <img src='#' class="table-img">
-        </td>
-        <td>
-          <p><strong><%= e.title %></strong></p>
-          <p><%= e.start_date %> through <%= e.end_date %></p>
-          <p><%= link_to "BUY TICKETS", e.purchase_link %></p>
-        </td>
-      </tr>
-    </table>
-  <% end %>
-<% end %>
+
+
+    <div class="col-md-12">
+      <p>Parker Chorale is on <a href="https://www.youtube.com/channel/UCULrEMrY4fjYDY-JyPiIf2w">
+         <%= image_tag(src="YouTube-logo-full_color.png", class: "logo") %></a></p>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Upcoming Performances</h3>
+
+      <% @performances.each do |e| %>
+        <% if e.end_date < Time.now %>
+          <table class="table">
+            <tr>
+              <td>
+                <img src='#' class="table-img">
+              </td>
+              <td>
+                <p><strong><%= e.title %></strong></p>
+                <p><%= e.start_date %> through <%= e.end_date %></p>
+                <p><%= link_to "BUY TICKETS", e.purchase_link %></p>
+              </td>
+            </tr>
+          </table>
+        <% else %>
+          <table class="table">
+            <tr>
+              <td>
+                <img src='#' class="table-img">
+              </td>
+              <td>
+                <p><strong><%= e.title %></strong></p>
+                <p><%= e.start_date %> through <%= e.end_date %></p>
+                <p><%= link_to "BUY TICKETS", e.purchase_link %></p>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
