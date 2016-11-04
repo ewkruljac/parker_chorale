@@ -16,14 +16,14 @@
 <div class="row bottom-20">
   <div class="col-md-5 col-md-offset-1">
     <h3>Upcoming Performances</h3>
-    <% if !@upcoming_performance.nil? %>
+
       <% if @upcoming_performance.end_date > Time.now %>
         <a href="<%= @upcoming_performance.purchase_link %>" 
             class="col-md-offset-1">
             <%= image_tag @upcoming_performance.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
         </a>
       <% end %>
-    <% end %>
+
 
   </div>
 
