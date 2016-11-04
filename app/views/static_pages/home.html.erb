@@ -1,35 +1,9 @@
-<!--
-<div class="header">
-  <div class="container">
-    <div class="heading">
-      <img src="http://www.parkerchorale.org/siteimages/logo.for.print.jpg" height=89px width=210px>
-      <p>Parker, Colorado's Adult Community Choral Group!</p>
-      </div>
-  </div>
-</div>
-
-
-
-<div class="menu">
-  <div class="container">
-    <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Hear Us Sing!</a></li>
-      <li><a href="#">Gallery</a></li>
-      <li><a href="#">Support Us</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-  </div>
-</div>
--->
-
 <div class="jumbotron">
   <h1 style="margin-top: 1em;">Parker Chorale</h1>
   <h3><em>Sharing the Gift of Song</em></h3>
     <div class="container">
       <div class="col-md-12  col-xs-12">
-        <%= image_tag("parker_chorale.jpg", id: "chorus-photo") %>
+        <%= image_tag("facebook-background.jpg", id: "chorus-photo") %>
         
       <h3>Parker, Colorado's adult community choral group!</h3>
       <h2>We are a community group dedicated to fostering the arts and supporting
@@ -39,3 +13,21 @@
   </div>
 </div>
 
+<div class="row bottom-20">
+  <div class="col-md-5 col-md-offset-1">
+    <h3>Upcoming Performances</h3>
+    <% if @upcoming_performance.end_date > Time.now %>
+      <a href="<%= @upcoming_performance.purchase_link %>" 
+         class="col-md-offset-1">
+         <%= image_tag @upcoming_performance.event_pic.url %>
+      </a>
+    <% end %>
+  </div>
+
+  <div class="col-md-4 col-md-offset-1">
+    <h3>Join Us on Facebook</h3>
+      <a href="http://www.facebook.com/pages/Parker-Chorale/369330451076">
+        <%= image_tag "facebook-profile-pic.jpg", class: "col-md-offset-1", style: "height: 200px; width: 200px;" %>
+      </a>
+  </div>
+</div>

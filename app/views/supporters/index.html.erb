@@ -1,0 +1,35 @@
+<h1>Our Generous Supporters</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+
+      <ul class="list-group">
+      <% @supporters.each do |e| %>
+        <% if e.kind == "Business" %>
+        <p><strong><%= e.name %></strong></p>
+
+          <li class="list-group-item">
+            <ul>
+              <li><%= e.phone %></li>
+              <li><a href='http://<%= e.website_url %>'><%= e.website_url %></a></li>
+              <%= image_tag e.logo.url(:medium) unless e.logo.nil? %>
+            </ul>
+          </li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-4 col-md-offset-1">
+      <h3>Individuals</h3>
+      <ul class="list-group">
+      <% @supporters.each do |e| %>
+        <% if e.kind == "Individual" %>
+        <li class="list-group-item"><strong><%= e.name %></strong></li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

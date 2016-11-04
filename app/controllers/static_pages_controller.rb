@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @upcoming_performance = Performance.last
   end
 
   def about

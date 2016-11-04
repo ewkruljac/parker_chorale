@@ -60,6 +60,11 @@ body {
   width: 210px;
 }
 
+.footer-logo {
+  height: 48px;
+  width: 159px;
+}
+
 .header {
   width: 100%;
   background-color: white;
@@ -135,10 +140,10 @@ header button {
   width: 100%;
   background-color: #ABADBB;
   margin-top: -60px;
+  margin-bottom: -50px;
   top: 0;
   left: 0;
   z-index: -1;
-
 }
 
 .top-8 {
@@ -151,6 +156,10 @@ header button {
 
 .top-10 {
   padding-top: 10px;
+}
+
+.bottom-20 {
+  padding-bottom: 20px;
 }
 
 
@@ -180,7 +189,7 @@ p {
 }
 
 footer {
-  margin-top: -400px;
+  margin-top: 200px;
   padding-top: 5px;
   padding-right: 45px;
   padding-left: 45px;
@@ -199,6 +208,8 @@ footer {
   }
   small {
     float: left;
+    vertical-align: middle;
+    line-height: 55px;
   }
   ul {
     float: right;
@@ -206,6 +217,14 @@ footer {
     li {
       float: left;
       margin-left: 15px;
+    }
+  }
+  @media (max-width: 780px) {
+    img {
+      display: block;
+      width: 60%;
+      height: 40%;
+      margin: auto;
     }
   }
 }
