@@ -13,7 +13,7 @@
             <ul>
               <li><%= e.phone %></li>
               <li><a href='http://<%= e.website_url %>'><%= e.website_url %></a></li>
-              <%= image_tag e.logo.url(:medium) unless e.logo.nil? %>
+              <%= image_tag e.logo.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com')(:medium) unless e.logo.nil? %>
             </ul>
           </li>
         <% end %>
