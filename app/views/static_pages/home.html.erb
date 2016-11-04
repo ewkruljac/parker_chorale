@@ -16,7 +16,7 @@
 <div class="row bottom-20">
   <div class="col-md-5 col-md-offset-1">
     <h3>Upcoming Performances</h3>
-    <% unless @upcoming_performance.nil? %>
+    <% if !@upcoming_performance.nil? %>
       <% if @upcoming_performance.end_date > Time.now %>
         <a href="<%= @upcoming_performance.purchase_link %>" 
             class="col-md-offset-1">

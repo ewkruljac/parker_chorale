@@ -15,6 +15,7 @@ class AudioFilesController < ApplicationController
 
   def index
     @audio_files = AudioFile.all
+    @ = 
   end
 
   def show
