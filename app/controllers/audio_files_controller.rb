@@ -1,4 +1,5 @@
 class AudioFilesController < ApplicationController
+  before_action :logged_in_user
 
   def create
     @audio_file = AudioFile.new(audio_params)
@@ -22,6 +23,7 @@ class AudioFilesController < ApplicationController
   end
 
   def destroy
+
   end
 
   private

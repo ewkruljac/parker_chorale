@@ -1,4 +1,6 @@
 class PerformancesController < ApplicationController
+  before_action :logged_in_user, only: [:create, :new]
+
 
   def create
     @performance = Performance.new(performance_params)
@@ -29,4 +31,6 @@ class PerformancesController < ApplicationController
     def performance_params
       params.require(:performance).permit(:title, :start_date, :end_date, :purchase_link, :event_pic, :youtube_link)
     end
+
+
 end

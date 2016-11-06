@@ -1,4 +1,5 @@
 class SupportersController < ApplicationController
+  before_action :logged_in_user, only: [:create, :new]
 
   def create
     @supporter = Supporter.new(supporter_params)
@@ -15,10 +16,6 @@ class SupportersController < ApplicationController
 
   def index
     @supporters = Supporter.all
-  end
-
-  def show
-    @supporter = Supporter.find(params[:id])
   end
 
   def destroy
