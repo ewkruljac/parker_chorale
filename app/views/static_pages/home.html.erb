@@ -16,18 +16,14 @@
 <div class="row bottom-20">
   <div class="col-md-5 col-md-offset-1">
     <h3>Upcoming Performances</h3>
-      <% unless @upcoming_performance.nil? %>
-        <% if @upcoming_performance.start_date > Time.now %>
-          <a href="<%= @upcoming_performance.purchase_link.to_s %>" 
+      <% @upcoming_performances.each do |e| %>
+        <% if e.start_date > Time.now %>
+          <a href="<%= e.purchase_link.to_s %>" 
               class="col-md-offset-1">
-              <%= image_tag @upcoming_performance.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+              <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
           </a>
         <% end %>
       <% end %>
-
-
-
-
   </div>
 
   <div class="col-md-4 col-md-offset-1">

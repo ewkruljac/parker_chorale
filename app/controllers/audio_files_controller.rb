@@ -1,5 +1,5 @@
 class AudioFilesController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user, only: [:create, :new, :show]
 
   def create
     @audio_file = AudioFile.new(audio_params)

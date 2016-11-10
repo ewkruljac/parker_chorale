@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/about_us',            to: 'static_pages#about'
 
   get '/support',             to: 'static_pages#support'
-  get '/contact',             to: 'static_pages#contact'
+  get '/contact',             to: 'contacts#new'
+  post '/contact',            to: 'contacts#create'
 
 
   get '/admin',               to: 'audio_files#new'

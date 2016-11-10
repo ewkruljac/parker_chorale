@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106022329) do
+ActiveRecord::Schema.define(version: 20161110044247) do
 
   create_table "audio_files", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20161106022329) do
     t.string   "mp3_content_type"
     t.integer  "mp3_file_size"
     t.datetime "mp3_updated_at"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "performances", force: :cascade do |t|
