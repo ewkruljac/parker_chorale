@@ -1,16 +1,24 @@
 <h1>Practice Tools for Members</h1>
 
-<h3>Music for (need to handle specific events)</h3>
+
+<h3>Music for <%= @audio_files.first.performance.title %></h3>
 
 <% @audio_files.each do |e| %>
-  <p><strong><%= e.title.capitalize %> - <%= e.part %></strong></p>
+  <% if !e.performance.nil? %>
+    <% if e.performance.end_date > Time.now %>
+      <p><strong><%= e.title.capitalize %> - <%= e.part %></strong></p>
 
-  <ul class="list-group">
-    <li class="list-group-item">
-      <audio src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
-        Your browser doesn't suppport audio tags.
-      </audio>
-    </li>
-  </ul>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <audio src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
+            Your browser doesn't suppport audio tags.
+          </audio>
+          <% if logged_in? %>
+            <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %>
+          <% end %>
+        </li>
+      </ul>
 
+    <% end %>
+  <% end %>
 <% end %>

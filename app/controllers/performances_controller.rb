@@ -1,5 +1,5 @@
 class PerformancesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :new]
+  before_action :logged_in_user, only: [:create, :new, :destroy]
 
 
   def create
@@ -24,6 +24,8 @@ class PerformancesController < ApplicationController
   end
 
   def destroy
+    @performance = Performance.find(params[:id]).destroy
+    redirect_to '/hear_us_sing'
   end
 
   private

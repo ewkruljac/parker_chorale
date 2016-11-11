@@ -45,6 +45,10 @@
           <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
             BUY TICKETS</a>
           </p>
+        <% if logged_in? %>
+          <%= link_to "Delete", e, method: :delete, 
+                                   data: { confirm: "Delete all files for this event?" } %>
+        <% end %>
         </td>
       </tr>
     <% else %>
@@ -61,6 +65,10 @@
           <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
             BUY TICKETS</a>
           </p>
+        <% if logged_in? %>
+          <%= link_to "Delete", e, method: :delete, 
+                                   data: { confirm: "Delete all files for this event?" } %>
+        <% end %>
         </td>
       </tr>
     <% end %>
@@ -87,6 +95,10 @@
         </td>
         <td class="embed-container">
           <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
+        <% if logged_in? %>
+          <%= link_to "Delete", e, method: :delete, 
+                                   data: { confirm: "Delete all files for this event?" } %>
+        <% end %>
         </td>
       </tr>
     <% else %>
@@ -103,6 +115,10 @@
         </td>
         <td class="embed-container">
           <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
+        <% if logged_in? %>
+          <%= link_to "Delete", e, method: :delete, 
+                                   data: { confirm: "Delete all files for this event?" } %>
+        <% end %>
         </td>
 
       </tr>
