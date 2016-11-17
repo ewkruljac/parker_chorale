@@ -11,15 +11,7 @@
       <%= f.text_field :title, class: 'form-control' %>
 
       <%= f.label :part %>
-      <%= f.select :part, ['Soprano 1', 
-                           'Soprano 2',
-                           'Alto 1',
-                           'Alto 2',
-                           'Tenor',
-                           'Bass',
-                           'Tenor and Bass',
-                           'Soprano - Bass Solos',
-                           'Full Performance'], class: 'form-control' %>
+      <%= f.text_field :part, class: 'form-control' %>
 
       <%= f.label :mp3 %>
       <%= f.file_field :mp3, class: 'form-control' %>
