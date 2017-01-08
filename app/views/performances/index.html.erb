@@ -1,4 +1,4 @@
-<h1>Hear us sing</h1>
+<h1>Hear Us Sing</h1>
 
 <div class="container">
   <div class="row">
@@ -29,51 +29,57 @@
 <h3>Upcoming Performances</h3>
 
 <table class="table table-bordered">
-<% @performances.each do |e| %>
-  <% if e.end_date > Time.now %>
-    <% if e.event_pic_file_name.nil? %>
-      <tr>
-        <td>
-          <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
-        </td>
-        <td class="pull-right">
-          <p><strong><%= e.title %></strong></p>
-          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
-             <%= e.end_date.strftime("%m/%d/%Y") %>
-          </p>
-          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
-          <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
-            BUY TICKETS</a>
-          </p>
-        <% if logged_in? %>
-          <%= link_to "Delete", e, method: :delete, 
-                                   data: { confirm: "Delete all files for this event?" } %>
-        <% end %>
-        </td>
-      </tr>
-    <% else %>
-      <tr>
-        <td>
-          <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), class: "table-img" %> 
-        </td>
-        <td>
-          <p><strong><%= e.title %></strong></p>
-          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
-             <%= e.end_date.strftime("%m/%d/%Y") %>
-          </p>
-          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
-          <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
-            BUY TICKETS</a>
-          </p>
-        <% if logged_in? %>
-          <%= link_to "Delete", e, method: :delete, 
-                                   data: { confirm: "Delete all files for this event?" } %>
-        <% end %>
-        </td>
-      </tr>
+
+<% if @performances.first.end_date < Time.now %>
+  <p>No performances are currently scheduled.  Please check back soon.</p>
+<% else %>
+  <% @performances.each do |e| %>
+    <% if e.end_date > Time.now %>
+      <% if e.event_pic_file_name.nil? %>
+        <tr>
+          <td>
+            <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
+          </td>
+          <td class="pull-right">
+            <p><strong><%= e.title %></strong></p>
+            <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+               <%= e.end_date.strftime("%m/%d/%Y") %>
+            </p>
+            <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
+            <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
+              BUY TICKETS</a>
+            </p>
+          <% if logged_in? %>
+            <%= link_to "Delete", e, method: :delete, 
+                                     data: { confirm: "Delete all files for this event?" } %>
+          <% end %>
+          </td>
+        </tr>
+      <% else %>
+        <tr>
+          <td>
+            <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), class: "table-img" %>
+          </td>
+          <td>
+            <p><strong><%= e.title %></strong></p>
+            <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+               <%= e.end_date.strftime("%m/%d/%Y") %>
+            </p>
+            <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
+            <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
+              BUY TICKETS</a>
+            </p>
+          <% if logged_in? %>
+            <%= link_to "Delete", e, method: :delete, 
+                                     data: { confirm: "Delete all files for this event?" } %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
+
 </table>
 
 <h3>Past Performances</h3>

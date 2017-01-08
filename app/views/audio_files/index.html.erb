@@ -1,6 +1,6 @@
 <h1>Practice Tools for Members</h1>
 
-
+<% if @audio_files.first.performance.end_date > Time.now %>
 <h3>Music for <%= @audio_files.first.performance.title %></h3>
 
 <% @audio_files.each do |e| %>
@@ -21,4 +21,5 @@
 
     <% end %>
   <% end %>
+<% end %>
 <% end %>

@@ -9,19 +9,19 @@
     <%= form_for @contact, url: contact_path do |f| %>
 
       <%= f.label :first_name, 'First Name' %>
-      <%= f.text_field :first_name, class: 'form-control' %>
+      <%= f.text_field :first_name, class: 'form-control', required: true %>
 
       <%= f.label :last_name, 'Last Name' %>
-      <%= f.text_field :last_name, class: 'form-control' %>
+      <%= f.text_field :last_name, class: 'form-control', required: true %>
 
       <%= f.label :email, "E-mail Address" %>
-      <%= f.text_field :email, class: 'form-control' %>
+      <%= f.text_field :email, class: 'form-control', required: true %>
 
       <%= f.label :phone, "Phone Number" %>
-      <%= f.text_field :phone, class: 'form-control' %>
+      <%= f.text_field :phone, class: 'form-control', required: true %>
 
       <%= f.label :message, "Message" %>
-      <%= f.text_area :message, size: "40x12", class: 'form-control' %>
+      <%= f.text_area :message, size: "40x12", class: 'form-control', required: true %>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>

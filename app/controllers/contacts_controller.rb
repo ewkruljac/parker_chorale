@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      flash.now[:success] = "Thank you, we will be in touch!"
+      flash.now[:success] = "Thank you for your interest, we will be in touch!"
       ContactMailer.contact_email(@contact).deliver_now
       redirect_to root_url
     else
