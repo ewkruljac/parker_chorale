@@ -1,25 +1,33 @@
-<h1>Practice Tools for Members</h1>
 
-<% if @audio_files.first.performance.end_date > Time.now %>
-<h3>Music for <%= @audio_files.first.performance.title %></h3>
+<% if logged_in? %>
+  <h1>Manage Song Files</h1>
+  <% @audio_files.each do |e| %>
+    <p><strong><%= link_to e.title, edit_audio_file_path(e) %> - <%= e.part %> - <%= e.performance.title %>
+               <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %>  
+    </strong></p>
+  <% end %>
+<% else %>
+  <h1>Practice Tools for Members</h1>
+  <% @performances.each do |f| %>
 
-<% @audio_files.each do |e| %>
-  <% if !e.performance.nil? %>
-    <% if e.performance.end_date > Time.now %>
-      <p><strong><%= e.title.capitalize %> - <%= e.part %></strong></p>
+    <h3>Music for <%= f.title %></h3>
 
-      <ul class="list-group">
-        <li class="list-group-item">
-          <audio src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
-            Your browser doesn't suppport audio tags.
-          </audio>
-          <% if logged_in? %>
-            <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %>
+    <% @audio_files.each do |e| %>
+      <% if !e.performance.nil? %>
+        <% if e.performance.end_date > Time.now %>
+          <% if f.title == e.performance.title %>
+              <p><strong><%= e.title.capitalize %> - <%= e.part %></strong></p>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <audio src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
+                  Your browser doesn't suppport audio tags.
+                </audio>
+
+              </li>
+            </ul>
           <% end %>
-        </li>
-      </ul>
-
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 <% end %>

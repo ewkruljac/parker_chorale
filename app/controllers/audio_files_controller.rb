@@ -10,12 +10,31 @@ class AudioFilesController < ApplicationController
     end
   end
 
+  def edit
+    @audio_file = AudioFile.find(params[:id])
+  end
+
+  def update
+    @audio_file = AudioFile.find(params[:id])
+    if @audio_file.update_attributes(audio_params)
+      flash[:success] = "Song updated!"
+      redirect_to '/practice'
+    else
+      render 'edit'
+    end
+  end
+
   def new
     @audio_file = AudioFile.new
   end
 
   def index
-    @audio_files = AudioFile.all
+    @performances = []
+    performances = Performance.all
+    performances.each do |e|
+      @performances << e if e.end_date > Time.now
+    end
+    @audio_files = AudioFile.order('title ASC')
   end
 
   def show

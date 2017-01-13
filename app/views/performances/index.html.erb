@@ -30,7 +30,7 @@
 
 <table class="table table-bordered">
 
-<% if @performances.first.end_date < Time.now %>
+<% if @performances.last.end_date < Time.now %>
   <p>No performances are currently scheduled.  Please check back soon.</p>
 <% else %>
   <% @performances.each do |e| %>
@@ -110,7 +110,7 @@
     <% else %>
       <tr>
         <td>
-          <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), class: "table-img" %> 
+          <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), class: "table-img" %>
         </td>
         <td>
           <p><strong><%= e.title %></strong></p>

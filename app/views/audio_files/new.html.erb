@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@audio_file, url: admin_path, html: { multipart: true }) do |f| %>
+    <%= form_for(@audio_file,  html: { multipart: true }) do |f| %>
 
       <%= f.label :performance_id, 'Event' %>
       <%= f.collection_select :performance_id, Performance.all, :id, :title %>

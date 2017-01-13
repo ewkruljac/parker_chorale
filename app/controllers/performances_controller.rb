@@ -17,6 +17,7 @@ class PerformancesController < ApplicationController
 
   def index
     @performances = Performance.all
+ #   @audio_files = AudioFile.all
   end
 
   def show

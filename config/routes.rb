@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post '/contact',            to: 'contacts#create'
 
 
-  get '/admin',               to: 'audio_files#new'
-  post '/admin',              to: 'audio_files#create'
+  #get '/admin',               to: 'audio_files#new'
+  #post '/admin',              to: 'audio_files#create'
   get '/practice',            to: 'audio_files#index'
 
   get '/events',              to: 'performances#new'
