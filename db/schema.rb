@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111060122) do
+ActiveRecord::Schema.define(version: 20170114053835) do
 
   create_table "audio_files", force: :cascade do |t|
     t.string   "title"
