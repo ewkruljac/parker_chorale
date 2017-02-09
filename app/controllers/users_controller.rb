@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated!"
       redirect_to @user
+    elsif @user.update_attributes(user_params)
+      log_in @user
+      @user.update_attributes(:reset_digest, nil)
+      flash[:success] = "Password has been reset."
+      redirect_to @user
     else
       render 'edit'
     end

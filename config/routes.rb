@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :users
   resources :audio_files
   resources :performances
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   
   root 'static_pages#home'
