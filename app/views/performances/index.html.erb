@@ -124,6 +124,8 @@
         <% if e.youtube_link.empty? %>
           <td>
             <p class="no-performance-text">No links available for this performance.</p>
+            <%= link_to "Delete", e, method: :delete, 
+                                     data: { confirm: "Delete all files for this event?" } %>
           </td>
         <% else %>
           <td class="embed-container">
