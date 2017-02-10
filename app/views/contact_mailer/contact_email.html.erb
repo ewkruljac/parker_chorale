@@ -4,10 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
   </head>
   <body>
-    <p><%= @contact.first_name %></p>
-    <p><%= @contact.last_name %></p>
-    <p><%= @contact.email %></p>
-    <p><%= @contact.phone %></p>
+    <p><%= @contact.first_name %> <%= @contact.last_name %> is interested in Parker Chorale.</p>
+    <p>Email: <%= @contact.email %></p>
+    <p>Phone: <%= @contact.phone %></p>
     <p><%= @contact.message %></p>
   </body>
 </html>

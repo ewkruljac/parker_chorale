@@ -10,7 +10,7 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-2">
+   <div class="col-xs-12 col-md-6 col-md-offset-3">
       <%= image_tag(src="group-standing-8033.jpg") %>
     </div>
   </div>
@@ -40,7 +40,7 @@
           <td>
             <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
           </td>
-          <td class="pull-right">
+          <td>
             <p><strong><%= e.title %></strong></p>
             <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
                <%= e.end_date.strftime("%m/%d/%Y") %>
@@ -49,13 +49,16 @@
             <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
               BUY TICKETS</a>
             </p>
+
           <% if logged_in? %>
             <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
           <% end %>
           </td>
         </tr>
+
       <% else %>
+
         <tr>
           <td>
             <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), class: "table-img" %>
@@ -117,16 +120,20 @@
           <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
              <%= e.end_date.strftime("%m/%d/%Y") %>
           </p>
-          <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
         </td>
-        <td class="embed-container">
-          <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
-        <% if logged_in? %>
-          <%= link_to "Delete", e, method: :delete, 
-                                   data: { confirm: "Delete all files for this event?" } %>
+        <% if e.youtube_link.empty? %>
+          <td>
+            <p class="no-performance-text">No links available for this performance.</p>
+          </td>
+        <% else %>
+          <td class="embed-container">
+            <%= embed(e.youtube_link) %>
+          <% if logged_in? %>
+            <%= link_to "Delete", e, method: :delete, 
+                                     data: { confirm: "Delete all files for this event?" } %>
+          <% end %>
+          </td>
         <% end %>
-        </td>
-
       </tr>
     <% end %>
   <% end %>

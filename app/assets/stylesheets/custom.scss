@@ -37,6 +37,11 @@ body {
   font-weight: bold;
 }*/
 
+.logo-small {
+  height: 60px; 
+  width: 96px;
+}
+
 .embed-container {
   position: relative;
   width: 60%;
@@ -50,9 +55,21 @@ body {
   text-align: center;
 }
 
+#home-youtube {
+  height: 160px;
+  width: 200px;
+  }
+
 .table-img {
   height: 120px;
   width: 120px;
+  padding-top: 14px;
+  vertical-align: 6px;
+}
+
+.no-performance-text {
+  margin-top: 40px;
+  font-size: 1.5em;
 }
 
 .logo {

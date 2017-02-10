@@ -1,4 +1,4 @@
-<h1>Add Song</h1>
+<h1>Add File</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -10,10 +10,10 @@
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
 
-      <%= f.label :part %>
+      <%= f.label :part, 'Description(Soprano, Sheet Music, Movie, etc.)' %>
       <%= f.text_field :part, class: 'form-control' %>
 
-      <%= f.label :mp3 %>
+      <%= f.label :mp3, "File To Upload" %>
       <%= f.file_field :mp3, class: 'form-control' %>
 
       <%= f.submit "Upload", class: "btn btn-primary" %>

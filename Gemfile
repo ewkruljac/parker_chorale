@@ -15,6 +15,7 @@ gem 'turbolinks',     '5.0.1'
 gem 'jbuilder',       '2.4.1'
 gem 'paperclip',      '~> 5.0.0'
 gem 'aws-sdk',        '~> 2.3'
+gem 'paperclip-av-transcoder'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'

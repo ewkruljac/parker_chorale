@@ -18,17 +18,24 @@
     <h3>Upcoming Performances</h3>
       <% @upcoming_performances.each do |e| %>
         <% if e.start_date > Time.now %>
+          <p><strong><%= e.title %></strong></p>
           <a href="<%= e.purchase_link.to_s %>" 
               class="col-md-offset-1">
-              <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+              <% if e.event_pic_file_name.nil? %>
+                <%= image_tag("chorale_logo.jpg", class: "table-img") %>
+              <% else %>
+                <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+              <% end %>
           </a>
         <% end %>
       <% end %>
   </div>
 
   <div class="col-md-3 col-md-offset-1">
-    <h3>Hear Us on You Tube</h3>
-      <%= image_tag "YouTube-logo-full_color.png", style: "height: 160px; width: 200px;" %>
+    <h3>Watch Us On</h3>
+      <a href="https://www.youtube.com/channel/UCULrEMrY4fjYDY-JyPiIf2w">
+        <%= image_tag(src="YouTube-logo-full_color.png", id: "home-youtube") %>
+      </a>
   </div>
 
   <div class="col-md-3 col-md-offset-1">
