@@ -3,7 +3,7 @@
   <h3><em>Sharing the Gift of Song</em></h3>
     <div class="container">
       <div class="col-md-12  col-xs-12">
-        <%= image_tag("facebook-background.jpg", id: "chorus-photo") %>
+        <%= image_tag("parker_chorale.jpg", id: "chorus-photo") %>
         
       <h3>Parker, Colorado's adult community choral group!</h3>
       <h2>We are a community group dedicated to fostering the arts and supporting
@@ -19,10 +19,9 @@
       <% @upcoming_performances.each do |e| %>
         <% if e.start_date > Time.now %>
           <p><strong><%= e.title %></strong></p>
-          <a href="<%= e.purchase_link.to_s %>" 
-              class="col-md-offset-1">
+          <a href="<%= e.purchase_link.to_s %>">
               <% if e.event_pic_file_name.nil? %>
-                <%= image_tag("chorale_logo.jpg", class: "table-img") %>
+                <%= image_tag("chorale_logo.jpg", class: "home-page-thumbs") %>
               <% else %>
                 <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
               <% end %>
@@ -41,7 +40,7 @@
   <div class="col-md-3 col-md-offset-1">
     <h3>Join Us on Facebook</h3>
       <a href="http://www.facebook.com/pages/Parker-Chorale/369330451076">
-        <%= image_tag "facebook-profile-pic.jpg", style: "height: 200px; width: 200px;" %>
+        <%= image_tag "facebook-profile-pic.jpg", class: "home-page-thumbs" %>
       </a>
   </div>
 </div>

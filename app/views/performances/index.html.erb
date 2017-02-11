@@ -42,9 +42,13 @@
           </td>
           <td>
             <p><strong><%= e.title %></strong></p>
-            <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
-               <%= e.end_date.strftime("%m/%d/%Y") %>
-            </p>
+            <% if e.end_date == e.start_date %>
+              <p><%= e.start_date.strftime("%m/%d/%Y") %></p>
+            <% else %>
+              <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+                 <%= e.end_date.strftime("%m/%d/%Y") %>
+              </p>
+            <% end %>
             <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
             <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
               BUY TICKETS</a>
@@ -65,9 +69,13 @@
           </td>
           <td>
             <p><strong><%= e.title %></strong></p>
-            <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
-               <%= e.end_date.strftime("%m/%d/%Y") %>
-            </p>
+            <% if e.end_date == e.start_date %>
+              <p><%= e.start_date.strftime("%m/%d/%Y") %></p>
+            <% else %>
+              <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+                 <%= e.end_date.strftime("%m/%d/%Y") %>
+              </p>
+            <% end %>
             <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
             <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
               BUY TICKETS</a>
@@ -117,15 +125,21 @@
         </td>
         <td>
           <p><strong><%= e.title %></strong></p>
-          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
-             <%= e.end_date.strftime("%m/%d/%Y") %>
-          </p>
+          <% if e.end_date == e.start_date %>
+            <p><%= e.start_date.strftime("%m/%d/%Y") %></p>
+          <% else %>
+            <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+               <%= e.end_date.strftime("%m/%d/%Y") %>
+            </p>
+          <% end %>
         </td>
         <% if e.youtube_link.empty? %>
           <td>
             <p class="no-performance-text">No links available for this performance.</p>
-            <%= link_to "Delete", e, method: :delete, 
+            <% if logged_in? %>
+              <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
+            <% end %>
           </td>
         <% else %>
           <td class="embed-container">
