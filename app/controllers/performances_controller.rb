@@ -16,8 +16,7 @@ class PerformancesController < ApplicationController
   end
 
   def index
-    @performances = Performance.all.order('end_date ASC')
- #   @audio_files = AudioFile.all
+    @performances = Performance.all.order('end_date DESC')
   end
 
   def show
