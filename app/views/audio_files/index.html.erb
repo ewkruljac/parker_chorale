@@ -16,7 +16,7 @@
       <% if !e.performance.nil? %>
         <% if e.performance.end_date > Time.now %>
           <% if f.title == e.performance.title %>
-              <p><strong><%= e.title.capitalize %> - <%= e.part %></strong></p>
+              <p><strong><%= e.title.titleize %> - <%= e.part.titlize %></strong></p>
             <ul class="list-group">
               <li class="list-group-item">
                 <% if e.mp3_file_name.end_with?("mp3") %>
@@ -29,7 +29,7 @@
                     <source src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/ogg">
                   </video>
                 <% else %>
-                  <%= link_to e.title.capitalize, e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+                  <%= link_to e.title.titleize, e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
                 <% end %>
               </li>
             </ul>

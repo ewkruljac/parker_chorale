@@ -25,7 +25,7 @@
               <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
             <% end %>
           </a>
-          <p><strong><%= e.title %></strong></p>
+          <p><strong><%= e.title.titleize %></strong></p>
         <% end %>
       <% end %>
   </div>
