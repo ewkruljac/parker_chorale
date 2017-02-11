@@ -2,7 +2,7 @@
 <% if logged_in? %>
   <h1>Manage Song Files</h1>
   <% @audio_files.each do |e| %>
-    <p><strong><%= link_to e.title, edit_audio_file_path(e) %> - <%= e.part %> - <%= e.performance.title %>
+    <p><strong><%= link_to e.title.titleize, edit_audio_file_path(e) %> - <%= e.part %> - <%= e.performance.title %>
                <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %>  
     </strong></p>
   <% end %>
@@ -10,13 +10,13 @@
   <h1>Practice Tools for Members</h1>
   <% @performances.each do |f| %>
 
-    <h3>Music for <%= f.title %></h3>
+    <h3>Music for <%= f.title.titleize %></h3>
 
     <% @audio_files.each do |e| %>
       <% if !e.performance.nil? %>
         <% if e.performance.end_date > Time.now %>
           <% if f.title == e.performance.title %>
-              <p><strong><%= e.title.titleize %> - <%= e.part.titlize %></strong></p>
+              <p><strong><%= e.title.titleize %> - <%= e.part.titleize %></strong></p>
             <ul class="list-group">
               <li class="list-group-item">
                 <% if e.mp3_file_name.end_with?("mp3") %>
