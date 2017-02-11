@@ -18,14 +18,14 @@
     <h3>Upcoming Performances</h3>
       <% @upcoming_performances.each do |e| %>
         <% if e.start_date > Time.now %>
-          <p><strong><%= e.title %></strong></p>
           <a href="<%= e.purchase_link.to_s %>">
-              <% if e.event_pic_file_name.nil? %>
-                <%= image_tag("chorale_logo.jpg", class: "home-page-thumbs") %>
-              <% else %>
-                <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
-              <% end %>
+            <% if e.event_pic_file_name.nil? %>
+              <%= image_tag("chorale_logo.jpg", class: "home-page-thumbs") %>
+            <% else %>
+              <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+            <% end %>
           </a>
+          <p><strong><%= e.title %></strong></p>
         <% end %>
       <% end %>
   </div>

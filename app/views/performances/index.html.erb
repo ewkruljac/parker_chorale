@@ -30,7 +30,7 @@
 
 <table class="table table-bordered">
 
-<% if @performances.first.end_date < Time.now %>
+<% if @performances.last.end_date > Time.now %>
   <p>No performances are currently scheduled.  Please check back soon.</p>
 <% else %>
   <% @performances.each do |e| %>
