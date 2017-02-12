@@ -31,9 +31,19 @@ class AudioFilesController < ApplicationController
   def index
     @performances = []
     performances = Performance.all
+
     performances.each do |e|
       @performances << e if e.end_date > Time.now
     end
+
+    @song_list = []
+    songs = AudioFile.all
+
+    songs.each do |e|
+      @song_list << e.title
+    end
+
+    @song_list.uniq!
     @audio_files = AudioFile.order('title ASC')
   end
 

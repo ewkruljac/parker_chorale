@@ -1,4 +1,3 @@
-
 <% if logged_in? %>
   <h1>Manage Song Files</h1>
   <% @audio_files.each do |e| %>
@@ -12,30 +11,30 @@
 
     <h3>Music for <%= f.title.titleize %></h3>
 
-    <% @audio_files.each do |e| %>
-      <% if !e.performance.nil? %>
-        <% if e.performance.end_date > Time.now %>
-          <% if f.title == e.performance.title %>
-              <p><strong><%= e.title.titleize %> - <%= e.part.titleize %></strong></p>
+
+    <% @song_list.each do |song_title| %>
+      <p><strong><%= song_title %></strong></p>
+        <% @audio_files.each do |song_file| %>
+          <% if song_file.title == song_title %>
+            <p>--<%= song_file.part %></p>
             <ul class="list-group">
               <li class="list-group-item">
-                <% if e.mp3_file_name.end_with?("mp3") %>
-                  <audio src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
+                <% if song_file.mp3_file_name.end_with?("mp3") %>
+                  <audio src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
                     Your browser doesn't suppport audio tags.
                   </audio>
-                <% elsif e.mp3_file_name.end_with?("mov") %>
+                <% elsif song_file.mp3_file_name.end_with?("mov") %>
                   <video width="320" height="240" controls>
-                    <source src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/mp4">
-                    <source src="<%= e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/ogg">
+                    <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/mp4">
+                    <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/ogg">
                   </video>
                 <% else %>
-                  <%= link_to e.title.titleize, e.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+                  <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
                 <% end %>
               </li>
             </ul>
           <% end %>
         <% end %>
-      <% end %>
     <% end %>
   <% end %>
 <% end %>
