@@ -16,7 +16,7 @@
       <h3><%= song_title %></strong></h3>
         <% @audio_files.each do |song_file| %>
           <% if song_file.title == song_title %>
-            <p>--<%= song_file.part %></p>
+            <p>&bull;<%= song_file.part %></p>
             <ul class="list-group">
               <li class="list-group-item">
                 <% if song_file.mp3_file_name.end_with?("mp3") %>
