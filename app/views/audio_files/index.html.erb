@@ -23,14 +23,17 @@
                   <audio src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
                     Your browser doesn't suppport audio tags.
                   </audio>
+
                 <% elsif song_file.mp3_file_name.end_with?("mov") %>
                   <video width="320" height="240" controls>
                     <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/mp4">
                     <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/ogg">
                   </video>
+
                 <% else %>
-                  <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+                  <p>Open PDF in browser: <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
                 <% end %>
+                <p>Download File: <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), download: song_file.title %>
               </li>
             </ul>
           <% end %>
