@@ -9,11 +9,11 @@
   <h1>Practice Tools for Members</h1>
   <% @performances.each do |f| %>
 
-    <h3>Music for <%= f.title.titleize %></h3>
+    <h3><strong>Music for <%= f.title.titleize %></strong></h3>
 
 
     <% @song_list.each do |song_title| %>
-      <p><strong><%= song_title %></strong></p>
+      <h3><%= song_title %></strong></h3>
         <% @audio_files.each do |song_file| %>
           <% if song_file.title == song_title %>
             <p>--<%= song_file.part %></p>
