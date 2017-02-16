@@ -28,7 +28,7 @@
 
 <h3>Upcoming Performances</h3>
 
-<table class="table table-bordered">
+<table class="table table-bordered"> 
 
 <% if @performances.last.end_date > Time.now %>
   <p>No performances are currently scheduled.  Please check back soon.</p>
@@ -50,8 +50,7 @@
               </p>
             <% end %>
             <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
-            <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
-              BUY TICKETS</a>
+            <p><a href="<%= e.purchase_link.to_s %>">BUY TICKETS</a>
             </p>
 
           <% if logged_in? %>
@@ -77,9 +76,7 @@
               </p>
             <% end %>
             <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
-            <p><a href="https://parkerarts.ticketforce.com/eventperformances.asp?evt=431">
-              BUY TICKETS</a>
-            </p>
+            <p><a href="<%= e.purchase_link.to_s %>">BUY TICKETS</a></p>
           <% if logged_in? %>
             <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
