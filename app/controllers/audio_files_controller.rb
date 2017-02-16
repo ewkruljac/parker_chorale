@@ -44,6 +44,10 @@ class AudioFilesController < ApplicationController
     end
 
     @song_list.uniq!
+    @song_list = @song_list.map do |e|
+      e.titleize
+    end
+    @song_list.sort!
     @audio_files = AudioFile.order('title ASC')
   end
 

@@ -13,9 +13,10 @@
 
 
     <% @song_list.each do |song_title| %>
-      <h3><%= song_title %></strong></h3>
+      
         <% @audio_files.each do |song_file| %>
-          <% if song_file.title == song_title %>
+          <% if song_file.title == song_title && song_file.performance.id == f.id %>
+            <h3><strong><%= song_title %></strong></h3>
             <p>&bull;<%= song_file.part %></p>
             <ul class="list-group">
               <li class="list-group-item">
@@ -38,7 +39,7 @@
             </ul>
           <% end %>
         <% end %>
-        <hr>
     <% end %>
+    <hr>
   <% end %>
 <% end %>
