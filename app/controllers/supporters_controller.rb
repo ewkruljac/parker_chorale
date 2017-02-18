@@ -25,7 +25,7 @@ class SupportersController < ApplicationController
   def update
     @supporter = Supporter.find(params[:id])
     if @supporter.update_attributes(supporter_params)
-      flash[:success] = "Song updated!"
+      flash[:success] = "Supporter updated!"
       redirect_to '/generous_supporters'
     else
       render 'edit'

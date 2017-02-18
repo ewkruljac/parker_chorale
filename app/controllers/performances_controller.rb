@@ -29,7 +29,7 @@ class PerformancesController < ApplicationController
   def update
     @performance = Performance.find(params[:id])
     if @performance.update_attributes(performance_params)
-      flash[:success] = "Song updated!"
+      flash[:success] = "Performance updated!"
       redirect_to '/hear_us_sing'
     else
       render 'edit'
