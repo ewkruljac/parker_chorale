@@ -22,6 +22,19 @@ class PerformancesController < ApplicationController
   def show
   
   end
+   def edit
+    @performance = Performance.find(params[:id])
+  end
+
+  def update
+    @performance = Performance.find(params[:id])
+    if @performance.update_attributes(performance_params)
+      flash[:success] = "Song updated!"
+      redirect_to '/hear_us_sing'
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
     @performance = Performance.find(params[:id]).destroy

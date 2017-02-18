@@ -14,6 +14,8 @@
               <li><%= e.phone %></li>
               <li><a href='http://<%= e.website_url %>'><%= e.website_url %></a></li>
               <%= image_tag e.logo.url(:medium).gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') unless e.logo.nil? %>
+              <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} if logged_in? %>
+              <%= link_to "Edit", edit_supporter_path(e) if logged_in? %>
             </ul>
           </li>
         <% end %>
@@ -26,7 +28,9 @@
       <ul class="list-group">
       <% @supporters.each do |e| %>
         <% if e.kind == "Individual" %>
-        <li class="list-group-item"><strong><%= e.name %></strong></li>
+        <li class="list-group-item"><strong><%= e.name %></strong>
+          <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} if logged_in? %>
+          <%= link_to "Edit", edit_supporter_path(e) if logged_in? %></li>
         <% end %>
       <% end %>
       </ul>

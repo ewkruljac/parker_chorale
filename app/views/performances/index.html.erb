@@ -56,6 +56,7 @@
           <% if logged_in? %>
             <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
+            <%= link_to "Edit", edit_performance_path(e) %>
           <% end %>
           </td>
         </tr>
@@ -80,6 +81,7 @@
           <% if logged_in? %>
             <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
+            <%= link_to "Edit", edit_performance_path(e) %>
           <% end %>
           </td>
         </tr>
@@ -112,6 +114,7 @@
         <% if logged_in? %>
           <%= link_to "Delete", e, method: :delete, 
                                    data: { confirm: "Delete all files for this event?" } %>
+          <%= link_to "Edit", edit_performance_path(e) %>
         <% end %>
         </td>
       </tr>
@@ -136,6 +139,7 @@
             <% if logged_in? %>
               <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
+              <%= link_to "Edit", edit_performance_path(e) %>
             <% end %>
           </td>
         <% else %>
@@ -144,6 +148,7 @@
           <% if logged_in? %>
             <%= link_to "Delete", e, method: :delete, 
                                      data: { confirm: "Delete all files for this event?" } %>
+            <%= link_to "Edit", edit_performance_path(e) %>
           <% end %>
           </td>
         <% end %>

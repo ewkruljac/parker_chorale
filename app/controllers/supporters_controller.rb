@@ -18,7 +18,23 @@ class SupportersController < ApplicationController
     @supporters = Supporter.all
   end
 
+  def edit
+    @supporter = Supporter.find(params[:id])
+  end
+
+  def update
+    @supporter = Supporter.find(params[:id])
+    if @supporter.update_attributes(supporter_params)
+      flash[:success] = "Song updated!"
+      redirect_to '/generous_supporters'
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
+    @supporter = Supporter.find(params[:id]).destroy
+    redirect_to '/generous_supporters'
   end
 
   private

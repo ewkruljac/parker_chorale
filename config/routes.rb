@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   get '/hear_us_sing',        to: 'performances#index'
 
   get '/generous_supporters', to: 'supporters#index'
-  get '/add_supporters',      to: 'supporters#new'
-  post '/add_supporters',     to: 'supporters#create'
+  #get '/add_supporters',      to: 'supporters#new'
+  #post '/add_supporters',     to: 'supporters#create'
+
+
 
   get '/signup',              to: 'users#new'
   post '/signup',             to: 'users#create'
@@ -32,6 +34,7 @@ Rails.application.routes.draw do
   resources :performances
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :supporters, only: [:new, :create, :edit, :update, :destroy]
 
   
   root 'static_pages#home'
