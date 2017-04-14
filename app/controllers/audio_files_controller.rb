@@ -1,5 +1,5 @@
 class AudioFilesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :new, :show, :destroy]
+  before_action :logged_in_user, only: [:create, :new, :show, :destroy, :logged_in_index]
 
   def create
     @audio_file = AudioFile.new(audio_params)
@@ -29,6 +29,29 @@ class AudioFilesController < ApplicationController
   end
 
   def index
+    @performances = []
+    performances = Performance.all
+
+    performances.each do |e|
+      @performances << e if e.end_date > Time.now
+    end
+
+    @song_list = []
+    songs = AudioFile.all
+
+    songs.each do |e|
+      @song_list << e.title
+    end
+
+    @song_list.uniq!
+    @song_list = @song_list.map do |e|
+      e.titleize
+    end
+    @song_list.sort!
+    @audio_files = AudioFile.order('title ASC')
+  end
+
+  def logged_in_index
     @performances = []
     performances = Performance.all
 

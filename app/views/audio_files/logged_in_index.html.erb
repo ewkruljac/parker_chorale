@@ -1,0 +1,8 @@
+<% if logged_in? %>
+  <h1>Manage Song Files</h1>
+  <% @audio_files.each do |e| %>
+    <p><strong><%= link_to e.title.titleize, edit_audio_file_path(e) %> - <%= e.part %> - <%= e.performance.title %>
+               <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %>  
+    </strong></p>
+  <% end %>
+<% end %>

@@ -7,20 +7,14 @@ Rails.application.routes.draw do
   get '/contact',             to: 'contacts#new'
   post '/contact',            to: 'contacts#create'
 
-
-  #get '/admin',               to: 'audio_files#new'
-  #post '/admin',              to: 'audio_files#create'
   get '/practice',            to: 'audio_files#index'
+  get '/manage_files',        to: 'audio_files#logged_in_index'
 
   get '/events',              to: 'performances#new'
   post '/events',             to: 'performances#create'
   get '/hear_us_sing',        to: 'performances#index'
 
   get '/generous_supporters', to: 'supporters#index'
-  #get '/add_supporters',      to: 'supporters#new'
-  #post '/add_supporters',     to: 'supporters#create'
-
-
 
   get '/signup',              to: 'users#new'
   post '/signup',             to: 'users#create'
