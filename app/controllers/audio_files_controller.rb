@@ -52,25 +52,6 @@ class AudioFilesController < ApplicationController
   end
 
   def logged_in_index
-    @performances = []
-    performances = Performance.all
-
-    performances.each do |e|
-      @performances << e if e.end_date > Time.now
-    end
-
-    @song_list = []
-    songs = AudioFile.all
-
-    songs.each do |e|
-      @song_list << e.title
-    end
-
-    @song_list.uniq!
-    @song_list = @song_list.map do |e|
-      e.titleize
-    end
-    @song_list.sort!
     @audio_files = AudioFile.order('title ASC')
   end
 
