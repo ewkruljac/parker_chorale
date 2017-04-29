@@ -1,7 +1,30 @@
 
 <h1>Manage Song Files</h1>
-<% @audio_files.each do |e| %>
-  <p><strong><%= link_to e.title, edit_audio_file_path(e) %> - <%= e.part %> - <%= e.performance.title %>
-               <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %>  
-    </strong></p>
-<% end %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table-condensed table-bordered table-hover">
+      <tr>
+        <th>Edit Song</th>
+        <th>Part</th>
+        <th>Performance</th>
+        <th>Remove</th>
+      </tr>
+      <% @audio_files.each do |e| %>
+        <tr>
+          <td>
+            <strong><%= link_to e.title, edit_audio_file_path(e) %></strong>
+          </td>
+          <td>
+            <%= e.part %>
+          </td>
+          <td><%= e.performance.title %></td>
+          <td>
+            <%= link_to "Delete", e, method: :delete, data: { confirm: "Really Delete?"} %> </strong>
+          </td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>
