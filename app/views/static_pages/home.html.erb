@@ -16,11 +16,11 @@
 <div class="row bottom-20">
   <div class="col-md-3 col-md-offset-1">
     <h3>Upcoming Performances</h3>
-      <% if @upcoming_performances.blank? %>
+      <% if @home_page_performances.blank? %>
         <p>No performances scheduled. Please check back soon.</p>
       <% else %>
         <% @upcoming_performances.each do |e| %>
-          <% if e.start_date > Time.now %>
+          <% if e.end_date > Time.now %>
             <a href="<%= e.purchase_link.to_s %>">
               <% if e.event_pic_file_name.nil? %>
                 <%= image_tag("chorale_logo.jpg", class: "home-page-thumbs") %>
