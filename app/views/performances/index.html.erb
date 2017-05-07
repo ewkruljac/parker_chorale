@@ -149,7 +149,7 @@
             </p>
           <% end %>
         </td>
-        <% if e.youtube_link.empty? %>
+        <% if e.youtube_link.nil? %>
           <td>
             <p class="no-performance-text">No links available for this performance.</p>
             <% if logged_in? %>
