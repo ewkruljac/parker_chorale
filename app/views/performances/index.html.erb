@@ -105,7 +105,7 @@
         </td>
         <td class="embed-container">
           <% if e.youtube_link.blank? %>
-            <p>No links available for this performance.</p>
+            <p class="no-performance-text">No links available for this performance.</p>
             <% if logged_in? %>
               <%= link_to "Delete", e, method: :delete, 
                                        data: { confirm: "Delete all files for this event?" } %>
@@ -136,7 +136,7 @@
             </p>
           <% end %>
         </td>
-        <% if e.youtube_link.nil? %>
+        <% if e.youtube_link.blank? %>
           <td>
             <p class="no-performance-text">No links available for this performance.</p>
             <% if logged_in? %>
