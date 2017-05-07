@@ -98,12 +98,12 @@
           <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
         </td>
         <td>
+          <p><strong><%= e.title.titleize %></strong></p>
           <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
              <%= e.end_date.strftime("%m/%d/%Y") %>
           </p>
         </td>
         <td class="embed-container">
-          <p><strong><%= e.title.titleize %></strong></p>
           <% if e.youtube_link.blank? %>
             <p>No links available for this performance.</p>
             <% if logged_in? %>
