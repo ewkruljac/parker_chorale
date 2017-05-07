@@ -1,35 +1,43 @@
 <h1>Practice Tools for Members</h1>
-<% @performances.each do |f| %>
 
-  <h3><strong>Music for <%= f.title.titleize %></strong></h3>
+<% if @audio_files.blank? %>
+  <p>No song files are currently uploaded.</p>
+<% else %>
+  <% @performances.each do |f| %>
 
+    <h4 class="song-title"><strong>Music for <%= f.title.titleize %></strong></h4>
 
-  <% @song_list.each do |song_title| %>
-    <% @audio_files.each do |song_file| %>
-      <% if song_file.title == song_title && song_file.performance.id == f.id %>
-        <h3><strong><%= song_title %></strong></h3>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <% if song_file.mp3_file_name.end_with?("mp3") %>
-              <p>&bull;<%= song_file.part %></p>
-              <audio src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
-                Your browser doesn't suppport audio tags.
-              </audio>
+    <% if @song_list.empty? %>
+      <p>No song files are currently uploaded for this event.</p>
+    <% else %>
+      <% @song_list.each do |song_title| %>
+        <% @audio_files.each do |song_file| %>
+          <% if song_file.title.titleize == song_title && song_file.performance.id == f.id %>
+            <h3><strong><%= song_title %></strong></h3>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <% if song_file.mp3_file_name.end_with?("mp3") %>
+                  <p>&bull;<%= song_file.part %></p>
+                  <audio src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="audio/mpeg" controls>
+                    Your browser doesn't suppport audio tags.
+                  </audio>
 
-            <% elsif song_file.mp3_file_name.end_with?("mov") %>
-              <p>&bull;<%= song_file.part %></p>
-              <video width="320" height="240" controls>
-                <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/mp4">
-                <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/ogg">
-              </video>
+                <% elsif song_file.mp3_file_name.end_with?("mov") %>
+                  <p>&bull;<%= song_file.part %></p>
+                  <video width="320" height="240" controls>
+                    <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/mp4">
+                    <source src="<%= song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>" type="video/ogg">
+                  </video>
 
-            <% else %>
-              <p>&bull;<%= song_file.part %></p>
-              <p>Open PDF in browser: <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
-            <% end %>
-            <p>Download File: <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), download: song_file.title %>
-          </li>
-        </ul>
+                <% else %>
+                  <p>&bull;<%= song_file.part %></p>
+                  <p>Open PDF in browser: <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+                <% end %>
+                <p>Download File: <%= link_to song_file.title.titleize, song_file.mp3.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com'), download: song_file.title %>
+              </li>
+            </ul>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

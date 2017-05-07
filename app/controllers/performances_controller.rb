@@ -17,12 +17,17 @@ class PerformancesController < ApplicationController
 
   def index
     @performances = Performance.all.order('end_date DESC')
+    @future_performances = []
+    @performances.each do |e|
+      @future_performances << e.end_date if e.end_date > Time.now
+    end
   end
 
   def show
   
   end
-   def edit
+  
+  def edit
     @performance = Performance.find(params[:id])
   end
 

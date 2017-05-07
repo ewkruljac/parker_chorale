@@ -3,6 +3,9 @@
 
 <div class="row">
   <div class="col-sm-12">
+    <% if @audio_files.blank? %>
+      <p>No song files currently uploaded.</p>
+    <% else %>
     <table class="table-condensed table-bordered table-hover">
       <tr>
         <th>Edit Song</th>
@@ -25,6 +28,7 @@
         </tr>
       <% end %>
     </table>
+    <% end %>
   </div>
   </br>
 </div>

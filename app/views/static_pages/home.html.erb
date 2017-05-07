@@ -16,16 +16,20 @@
 <div class="row bottom-20">
   <div class="col-md-3 col-md-offset-1">
     <h3>Upcoming Performances</h3>
-      <% @upcoming_performances.each do |e| %>
-        <% if e.start_date > Time.now %>
-          <a href="<%= e.purchase_link.to_s %>">
-            <% if e.event_pic_file_name.nil? %>
-              <%= image_tag("chorale_logo.jpg", class: "home-page-thumbs") %>
-            <% else %>
-              <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
-            <% end %>
-          </a>
-          <p><strong><%= e.title.titleize %></strong></p>
+      <% if @upcoming_performances.blank? %>
+        <p>No performances scheduled. Please check back soon.</p>
+      <% else %>
+        <% @upcoming_performances.each do |e| %>
+          <% if e.start_date > Time.now %>
+            <a href="<%= e.purchase_link.to_s %>">
+              <% if e.event_pic_file_name.nil? %>
+                <%= image_tag("chorale_logo.jpg", class: "home-page-thumbs") %>
+              <% else %>
+                <%= image_tag e.event_pic.url.gsub('http://s3.amazonaws.com', 'https://s3-us-west-2.amazonaws.com') %>
+              <% end %>
+            </a>
+            <p><strong><%= e.title.titleize %></strong></p>
+          <% end %>
         <% end %>
       <% end %>
   </div>

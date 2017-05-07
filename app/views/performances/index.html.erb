@@ -26,7 +26,7 @@
 
 <table class="table table-bordered"> 
 
-<% if @performances.last.end_date > Time.now %>
+<% if @future_performances.empty? %>
   <p>No performances are currently scheduled.  Please check back soon.</p>
 <% else %>
   <% @performances.each do |e| %>
@@ -46,8 +46,7 @@
               </p>
             <% end %>
             <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p>
-            <p><a href="<%= e.purchase_link.to_s %>">BUY TICKETS</a>
-            </p>
+            <p><%= link_to "BUY TICKETS", "http://" + e.purchase_link.gsub("http://", '').gsub("https://", '') %></p>
 
           <% if logged_in? %>
             <%= link_to "Delete", e, method: :delete, 
@@ -98,21 +97,42 @@
         <td>
           <%= image_tag src="chorale_logo.jpg", class: "table-img" %>
         </td>
-        <td>
+        <td class="embed-container">
           <p><strong><%= e.title.titleize %></strong></p>
-          <p><%= e.start_date.strftime("%m/%d/%Y") %> through 
+          <% if e.youtube_link.blank? %>
+            <p>No links available for this performance.</p>
+            <% if logged_in? %>
+              <%= link_to "Delete", e, method: :delete, 
+                                       data: { confirm: "Delete all files for this event?" } %>
+              <%= link_to "Edit", edit_performance_path(e) %>
+            <% end %>
+          <% else %>
+            <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
+            <% if logged_in? %>
+              <%= link_to "Delete", e, method: :delete, 
+                                       data: { confirm: "Delete all files for this event?" } %>
+              <%= link_to "Edit", edit_performance_path(e) %>
+            <% end %>
+          <% end %>
+          <!--<p><%= e.start_date.strftime("%m/%d/%Y") %> through 
              <%= e.end_date.strftime("%m/%d/%Y") %>
-          </p>
+          </p>-->
           <!-- <p>Performance Time: <%= e.start_date.strftime("%I:%M%p") %></p> -->
         </td>
-        <td class="embed-container">
-          <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
-        <% if logged_in? %>
-          <%= link_to "Delete", e, method: :delete, 
-                                   data: { confirm: "Delete all files for this event?" } %>
-          <%= link_to "Edit", edit_performance_path(e) %>
-        <% end %>
-        </td>
+
+        <!--
+        <% if e.youtube_link.blank? %>
+          <p>No links available for this performance.</p>
+        <% else %>
+          <td class="embed-container">
+            <%= embed(e.youtube_link) unless e.youtube_link.nil? %>
+            <% if logged_in? %>
+              <%= link_to "Delete", e, method: :delete, 
+                                       data: { confirm: "Delete all files for this event?" } %>
+              <%= link_to "Edit", edit_performance_path(e) %>
+            <% end %>
+          </td>
+        <% end %>-->
       </tr>
     <% else %>
       <tr>

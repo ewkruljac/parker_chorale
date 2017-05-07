@@ -2,6 +2,7 @@ class AudioFilesController < ApplicationController
   before_action :logged_in_user, only: [:create, :new, :show, :destroy, :logged_in_index]
 
   def create
+    @performances = Performance.all
     @audio_file = AudioFile.new(audio_params)
     if @audio_file.save
       redirect_to '/practice'
@@ -25,6 +26,7 @@ class AudioFilesController < ApplicationController
   end
 
   def new
+    @performances = Performance.all
     @audio_file = AudioFile.new
   end
 
