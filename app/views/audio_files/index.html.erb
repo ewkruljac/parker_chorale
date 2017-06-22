@@ -1,7 +1,7 @@
 <h1>Practice Tools for Members</h1>
 
 <% if @audio_files.blank? %>
-  <p>No song files are currently uploaded.</p>
+  <p>No performances are currently scheduled.</p>
 <% else %>
   <% @performances.each do |f| %>
 
@@ -43,3 +43,26 @@
   <% end %>
   <hr>
 <% end %>
+
+<hr>
+
+<h3>National Anthem Tracks</h3>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <p>&bull;Alto Practice</p>
+    <audio src="https://s3-us-west-2.amazonaws.com/parker-chorale-prod/national_anthem_tracks/National+Anthem-PC+Alto+Practice.mp3" type="audio/mpeg" controls></audio>
+  </li>
+  <li class="list-group-item">
+    <p>&bull;Bass Practice</p>
+    <audio src="https://s3-us-west-2.amazonaws.com/parker-chorale-prod/national_anthem_tracks/National+Anthem-PC+Bass+Practice.mp3" type="audio/mpeg" controls></audio>
+  </li>
+  <li class="list-group-item">
+    <p>&bull;Tenor Practice</p>
+    <audio src="https://s3-us-west-2.amazonaws.com/parker-chorale-prod/national_anthem_tracks/National+Anthem-PC+Tenor+Practice.mp3" type="audio/mpeg" controls></audio>
+  </li>
+  <li class="list-group-item">
+    <p>&bull;Full Choir Practice</p>
+    <audio src="https://s3-us-west-2.amazonaws.com/parker-chorale-prod/national_anthem_tracks/National+Anthem-PC+Full+Choir+Practice.mp3" type="audio/mpeg" controls></audio>
+  </li>
+</ul>
