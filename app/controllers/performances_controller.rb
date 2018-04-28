@@ -19,7 +19,7 @@ class PerformancesController < ApplicationController
     @performances = Performance.all.order('end_date DESC')
     @future_performances = []
     @performances.each do |e|
-      @future_performances << e.end_date if e.end_date > Time.now
+      @future_performances << e.end_date if e.end_date + 86400 > Time.now
     end
   end
 
