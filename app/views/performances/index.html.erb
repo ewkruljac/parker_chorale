@@ -30,7 +30,7 @@
   <p>No performances are currently scheduled.  Please check back soon.</p>
 <% else %>
   <% @performances.each do |e| %>
-    <% if e.end_date > Time.now %>
+    <% if e.end_date + 86400 > Time.now %>
       <% if e.event_pic_file_name.nil? %>
         <tr>
           <td>
