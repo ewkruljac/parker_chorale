@@ -35,7 +35,7 @@ class AudioFilesController < ApplicationController
     performances = Performance.all
 
     performances.each do |e|
-      @performances << e if e.end_date > Time.now
+      @performances << e if e.end_date + 86400 > Time.now
     end
 
     @song_list = []
