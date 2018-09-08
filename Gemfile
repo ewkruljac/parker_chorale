@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
 
-gem 'rails',          '5.0.0.1'
+gem 'rails',          '5.0.1'
 gem 'bcrypt',         '3.1.11'
 gem 'mini_magick',    '4.5.1'
 gem 'fog',            '1.38.0'
 gem 'bootstrap-sass', '3.3.6'
-gem 'puma',           '3.4.0'
+gem 'puma',           '~>3.4'
 gem 'sass-rails',     '5.0.6'
 gem 'uglifier',       '3.0.0'
 gem 'coffee-rails',   '4.2.1'
