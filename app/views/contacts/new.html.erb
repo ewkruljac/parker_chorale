@@ -3,10 +3,10 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <p>If you would like more information about, or would like
-       to join the Parker Chorale, please provide your information
-       below.
+       to join the Parker Chorale, please send us a note.
     </p>
-    <%= form_for @contact, url: contact_path do |f| %>
+
+    <!-- <%= form_for @contact, url: contact_path do |f| %>
 
       <%= f.label :first_name, 'First Name' %>
       <%= f.text_field :first_name, class: 'form-control', required: true %>
@@ -24,11 +24,20 @@
       <%= f.text_area :message, size: "40x12", class: 'form-control', required: true %>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
+    <% end %> -->
   </div>
 </div>
-
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <a class="btn btn-primary" href="mailto:popealicia@msn.com">Email Us</a>
+  </div>
+</div>
 </br>
-<p class="top-margin-small"><small>Parker Chorale</small></p>
-<p class="top-margin-small"><small>Alicia Pope - Founder/Chairman</small></p>
-<p class="top-margin-small"><small>303.840.7757</small></p>
+</br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p class="top-margin-small"><small>Parker Chorale</small></p>
+    <p class="top-margin-small"><small>Alicia Pope - Founder/Chairman</small></p>
+    <p class="top-margin-small"><small>303.840.7757</small></p>
+  </div>
+</div>
